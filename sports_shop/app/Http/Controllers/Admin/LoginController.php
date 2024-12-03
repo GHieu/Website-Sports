@@ -6,23 +6,22 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\Login\AuthRequest;
 class LoginController extends Controller
 {
     public function index()
     {
+        if (Auth::id() > 0) {
+            return redirect()->route('admin');
+        }
         return view('admin.login', [
             'title' => 'Bảng nhập hệ thống',
             'name' => 'LOGIN ADMIN'
         ]);
     }
 
-    public function store(Request $request)
+    public function store(AuthRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email:filter',
-            'password' => 'required'
-        ]);
         if (
             Auth::attempt([
                 'email' => $request->input('email'),
@@ -33,5 +32,17 @@ class LoginController extends Controller
         }
         session()->flash('error', 'Email hoặc password không đúng');
         return redirect()->back();
+    }
+
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 }

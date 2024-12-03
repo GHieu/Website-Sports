@@ -58,7 +58,8 @@ class ProductController extends Controller
                 'menu_id' => (string) $request->input('menu_id'),
                 'price' => (string) $request->input('price'),
                 'price_sale' => (string) $request->input('price_sale'),
-                'active' => (string) $request->input('active'),
+                'quantity' => (string) $request->input('quantity'),
+                'size' => (string) $request->input('size'),
                 'thumb' => (string) $request->input('thumb'),
             ]);
             Session::flash('success', 'Thêm sản phẩm mới thành công');
@@ -176,10 +177,11 @@ class ProductController extends Controller
         }
     }
 
+    //Call id Customer/MainController
     const LIMIT = 16;
     public function get2($load = null)
     {
-        return Product::select('id', 'name', 'price', 'price_sale', 'thumb')
+        return Product::select('id', 'name', 'price', 'price_sale', 'quantity', 'thumb')
             ->orderByDesc('id')
             ->when($load != null, function ($query) use ($load) {
                 $query->offset($load * self::LIMIT);

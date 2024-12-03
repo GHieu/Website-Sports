@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $value = Menu::select('id', 'name', 'parent_id')->where('active', 1)->orderByDesc('id')->get();
+        $value = Menu::select('id', 'name', 'parent_id')->orderByDesc('id')->get();
         Facades\View::share('key', $value);
         Paginator::useBootstrap();
     }

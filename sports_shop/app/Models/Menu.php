@@ -14,9 +14,10 @@ class Menu extends Model
     protected $fillable = [
         'name',
         'parent_id',
-        'description',
-        'content',
-        // 'slug',
         'active'
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'menu_id', 'id');
+    }
 }

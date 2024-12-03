@@ -8,5 +8,12 @@
 <script src="/template/admin/dist/js/adminlte.min.js"></script>
 
 <script src="/template/admin/js/main.js"></script>
-
+<script>
+$(function() {
+    $('#currency').maskMoney({
+        suffix: 'đ',
+        precision: 0
+    });
+})
+</script>
 @yield('footer')

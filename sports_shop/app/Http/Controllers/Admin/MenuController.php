@@ -54,10 +54,7 @@ class MenuController extends Controller
             Menu::create([
                 'name' => (string) $request->input('name'),
                 'parent_id' => (string) $request->input('parent_id'),
-                'description' => (string) $request->input('description'),
-                'content' => (string) $request->input('content'),
-                'active' => (string) $request->input('active'),
-                // 'slug' => Str::slug($request->input('name'), '-')
+                'active' => 1,
             ]);
             Session::flash('success', 'Tạo danh mục thành công');
         } catch (Exception $err) {
@@ -125,9 +122,7 @@ class MenuController extends Controller
             $menu->parent_id = (int) $request->input('parent_id');
         }
         $menu->name = (string) $request->input('name');
-        $menu->description = (string) $request->input('description');
-        $menu->content = (string) $request->input('content');
-        $menu->active = (string) $request->input('active');
+        $menu->active = 1;
         $menu->save();
         Session::flash('success', 'Cập nhật danh mục thành công');
         return true;
@@ -150,5 +145,24 @@ class MenuController extends Controller
             'menu' => $menu,
             'menus' => $this->getParent()
         ]);
+    }
+
+
+
+    //Call id Customer/Menucontroller
+    public function getId($id)
+    {
+        return Menu::where('id', $id)->firstOrFail();
+    }
+
+    public function getProduct($menu, $request)
+    {
+        $query = $menu->products()->select('id', 'name', 'price', 'price_sale', 'quantity', 'size', 'thumb');
+
+        if ($request->input('price')) {
+            $query->orderBy('price', $request->input('price'));
+        }
+        return $query->orderByDesc('id')
+            ->paginate(12)->withQueryString();
     }
 }

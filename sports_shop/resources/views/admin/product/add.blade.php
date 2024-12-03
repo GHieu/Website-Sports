@@ -34,17 +34,37 @@
                 <div class="form-group">
                     <label for="menu">Giá Gốc</label>
                     <input type="number" name="price" value="{{ old('price') }}" class="form-control">
-
                 </div>
             </div>
-
-            <div class="col-md-6">
+            <div class=" col-md-6">
                 <div class="form-group">
                     <label for="menu">Giá Giảm</label>
                     <input type="number" name="price_sale" value="{{ old('price_sale') }}" class="form-control">
                 </div>
             </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="menu">Số lượng</label>
+                    <input type="number" name="quantity" value="{{ old('quantity') }}">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div>
+                    <label for="menu">Size</label>
+                </div>
+                <select name="size" id="">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="2XL">2XL</option>
+                </select>
+            </div>
+
         </div>
+
+
 
         <div class="form-group">
             <label>Mô Tả </label>
@@ -68,22 +88,11 @@
 
         </div>
 
-        <div class="form-group">
-            <label>Kích Hoạt</label>
-            <div class="custom-control custom-radio">
-                <input class="custom-control-input" value="1" type="radio" id="active" name="active" checked="">
-                <label for="active" class="custom-control-label">Có</label>
-            </div>
-            <div class="custom-control custom-radio">
-                <input class="custom-control-input" value="0" type="radio" id="no_active" name="active">
-                <label for="no_active" class="custom-control-label">Không</label>
-            </div>
-        </div>
-
     </div>
 
     <div class="card-footer">
         <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
+    </div>
     </div>
     @csrf
 </form>
@@ -123,5 +132,13 @@ ClassicEditor
     .catch(error => {
         console.error(error);
     });
+
+
+function formatCurrency(input) {
+    let value = input.value.replace(/[^0-9]/g, ''); // Chỉ giữ lại số
+    if (value) {
+        input.value = new Intl.NumberFormat('vi-VN').format(value) + ' đ';
+    }
+}
 </script>
 @endsection

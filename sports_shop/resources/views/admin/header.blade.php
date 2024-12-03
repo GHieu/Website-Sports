@@ -15,8 +15,9 @@
 <link rel="stylesheet" href="/template/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/template/admin/dist/css/adminlte.min.css">
-
+<link rel="stylesheet" href="/template/admin/dist/css/custom.css">
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script src="/template/customer/js/jquery.maskMoney.js" type="text/javascript"></script>
 @yield('header')

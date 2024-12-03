@@ -7,8 +7,6 @@
         <tr>
             <th style="width:50px">ID</th>
             <th>Tên danh mục</th>
-            <th>Trạng thái</th>
-            <th>Ngày cập nhật</th>
             <th style="width:100px">&nbsp;</th>
         </tr>
     </thead>

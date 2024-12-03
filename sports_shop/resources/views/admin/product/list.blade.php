@@ -8,10 +8,10 @@
             <th style="width:50px">ID</th>
             <th>Tên sản phẩm</th>
             <th>Danh mục</th>
-            <th>Giá gốc</th>
-            <th>Giá khuyến mãi</th>
-            <th>Trạng thái</th>
-            <th>Thời gian tạo đơn</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Size</th>
+            <th>Thời gian tạo sản phẩm</th>
 
             <th style="width:100px">&nbsp;</th>
         </tr>
@@ -27,10 +27,10 @@
             <td>{{$value->id}}</td>
             <td>{{$value->name}}</td>
             <td>{{$value->menu->name}}</td>
-            <td>{{$value->price}}</td>
-            <td>{{$value->price_sale}}</td>
-            <td>{!! \App\Helpers\Helper::active($value->active) !!}</td>
-            <td>{{$value->updated_at}}</td>
+            <td>{{ number_format($value->price, 0, ',', ',') }} VNĐ</td>
+            <td>{{$value->quantity}}</td>
+            <td>{{$value->size}}</td>
+            <td>{{$value->updated_at->format('d/m/Y')}}</td>
 
 
             <td>

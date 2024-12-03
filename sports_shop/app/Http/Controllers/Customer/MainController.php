@@ -20,8 +20,8 @@ class MainController extends Controller
     }
     public function index()
     {
-        return view('customer.main', [
-            'title' => 'Shop quần áo thể thao',
+        return view('customer.home', [
+            'title' => 'Kamito - Cửa hàng quần áo thể thao',
             'products' => $this->product->get2(),
         ]);
     }
@@ -30,8 +30,8 @@ class MainController extends Controller
     {
         $load = $request->input('load', 0);
         $result = $this->product->get2($load);
-        if ($result) {
-            $html = view('products.list', ['products' => $result])->render();
+        if (count($result) != 0) {
+            $html = view('customer.products.list', ['products' => $result])->render();
             return response()->json(['html' => $html]);
         }
         return response()->json(['html' => '']);
