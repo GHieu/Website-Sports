@@ -10,6 +10,12 @@ body,
     align-items: center;
 }
 
+@media (max-width: 993) {
+    .con-pa-top {
+        padding-top: 0;
+    }
+}
+
 @media (min-width: 993px) {
     .carousel-item {
         margin-top: 80px;
@@ -19,10 +25,6 @@ body,
 @media (max-width: 46.1875em) {
     #slider_show img {
         height: 100%;
-    }
-    .fa-angle-left,
-    .fa-angle-right {
-        display: none;
     }
 
     .block1-txt:hover,
@@ -44,8 +46,8 @@ body,
     right: 0;
 }
 
-.fa-angle-left,
-.fa-angle-right {
+.banner-direction-left,
+.banner-direction-right {
     font-weight: 900;
     font-size: xx-large;
     padding: 9px 16px;
@@ -55,8 +57,8 @@ body,
     background-color: rgb(214 219 222);
 }
 
-.fa-angle-left:hover,
-.fa-angle-right:hover {
+.banner-direction-left:hover,
+.banner-direction-right:hover {
     background-color: #000;
     color: rgb(214 219 222);
     transition: 0.3s all linear;
@@ -295,4 +297,219 @@ body,
     text-decoration: none;
     margin: 0;
     transition: all 0.2s ease-in-out;
+}
+
+/* Log in */
+/* Modal container */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(194, 180, 186, 0.918);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal nội dung chính */
+.modal-container {
+    background-color: #fff;
+    width: 90%; /* Giảm chiều rộng để phù hợp với màn hình */
+    max-width: 600px; /* Giới hạn chiều rộng của modal */
+    min-height: 400px; /* Đảm bảo đủ chiều cao */
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px; /* Tạo viền tròn cho modal */
+    animation: modalFadeIn ease 0.4s;
+}
+
+/* Header của modal */
+.modal-header {
+    color: #000;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Nhãn cho các input */
+.modal-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+/* Input cho modal */
+.modal-input {
+    border: 1px solid #ccc;
+    width: 98%;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+/* Style cho button đăng ký */
+#log-in {
+    background-color: #000;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#log-in:hover {
+    background-color: #dc3545; /* Màu đỏ cho khi hover */
+}
+
+/* Các đoạn text phụ dưới modal */
+.modal-footer2 .modal-help {
+    padding: 16px;
+    text-align: right;
+}
+
+.modal-footer2 .modal-help a {
+    color: #2196f3;
+    text-decoration: none;
+}
+
+.log-register {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.log-register p {
+    display: inline-block;
+}
+
+/* Điều chỉnh responsive cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .modal-container {
+        width: 90%; /* Gọn lại cho màn hình di động */
+        max-width: 100%; /* Đảm bảo không vượt quá màn hình */
+    }
+
+    .modal-header {
+        font-size: 26px; /* Giảm cỡ chữ của tiêu đề */
+    }
+
+    .modal-label {
+        font-size: 13px; /* Giảm cỡ chữ của nhãn */
+    }
+
+    .modal-input {
+        font-size: 14px; /* Giảm font-size input */
+        padding: 10px;
+    }
+
+    #log-in {
+        font-size: 14px; /* Đảm bảo button có kích thước hợp lý trên điện thoại */
+        padding: 12px;
+    }
+}
+
+/* Hover cho liên kết đăng nhập */
+.log-register p > a:hover {
+    color: #dc3545; /* Màu đỏ khi hover liên kết đăng nhập */
+}
+
+/* cart */
+.cart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Chiều cao chiếm toàn bộ màn hình */
+}
+
+.delete-cart {
+    border: 1px solid #000;
+    color: #fff;
+    background-color: #000;
+}
+
+.delete-cart:hover {
+    border-color: red;
+    background-color: red;
+    color: #fff;
+    transition: ease 0.3s;
+}
+
+.error-message,
+.text-danger {
+    color: red;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+/* .alert {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+} */
+
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    animation: fadeIn 1s;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    animation: fadeIn 1s;
+}
+
+/* Thêm hiệu ứng mờ dần khi xuất hiện */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

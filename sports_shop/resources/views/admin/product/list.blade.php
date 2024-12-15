@@ -10,7 +10,7 @@
             <th>Danh mục</th>
             <th>Giá</th>
             <th>Số lượng</th>
-            <th>Size</th>
+            <!-- <th>Size</th> -->
             <th>Thời gian tạo sản phẩm</th>
 
             <th style="width:100px">&nbsp;</th>
@@ -23,27 +23,27 @@
 
 
 
-        <tr>
-            <td>{{$value->id}}</td>
-            <td>{{$value->name}}</td>
-            <td>{{$value->menu->name}}</td>
-            <td>{{ number_format($value->price, 0, ',', ',') }} VNĐ</td>
-            <td>{{$value->quantity}}</td>
-            <td>{{$value->size}}</td>
-            <td>{{$value->updated_at->format('d/m/Y')}}</td>
+            <tr>
+                <td>{{$value->id}}</td>
+                <td>{{$value->name}}</td>
+                <td>{{$value->menu->name}}</td>
+                <td>{{ number_format($value->price, 0, ',', ',') }} VNĐ</td>
+                <td>{{$value->quantity}}</td>
+                <!-- <td>{{$value->size}}</td> -->
+                <td>{{$value->updated_at->format('d/m/Y')}}</td>
 
 
-            <td>
-                <a class="btn btn-primary btn-sm" href="/admin/products/edit/{{$value->id}}">
-                    <i class="fa-solid fa-user-pen"></i>
-                </a>
-                <a href="#" class="btn btn-danger btn-sm"
-                    onclick="removeRow({{$value->id}}, '/admin/products/destroy')">
-                    <i class="fa-solid fa-trash"></i>
-                </a>
-            </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/admin/products/edit/{{$value->id}}">
+                        <i class="fa-solid fa-user-pen"></i>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-sm"
+                        onclick="removeRow({{$value->id}}, '/admin/products/destroy')">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
 
-            @endforeach
+        @endforeach
     </tbody>
     </tr>
 </table>

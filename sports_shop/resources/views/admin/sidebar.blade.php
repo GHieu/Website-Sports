@@ -86,6 +86,26 @@
                     </ul>
                 </li>
 
+
+
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active list-menu">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>
+                            Đơn hàng
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/carts/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách đơn hàng</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <div class="form-group">
                     <label for="menu">Size</label>
                     <select name="size" id="">
@@ -66,7 +66,7 @@
                         <option value="">2XL</option>
                     </select>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="form-group">

@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="col-md-2">
+            <!-- <div class="col-md-2">
                 <div>
                     <label for="menu">Size</label>
                 </div>
@@ -60,7 +60,7 @@
                     <option value="XL">XL</option>
                     <option value="2XL">2XL</option>
                 </select>
-            </div>
+            </div> -->
 
         </div>
 

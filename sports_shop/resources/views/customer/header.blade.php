@@ -34,6 +34,6 @@
 <link rel="stylesheet" type="text/css" href="/template/customer/css/main.css">
 <!--===============================================================================================-->
 
+<link rel="stylesheet" type="text/css" href="{{ asset('template/customer/css/style.css') }}">
 
-<link rel="stylesheet" type="text/css" href="/template/customer/css/style.css">
 <meta name="csrf-token" content="{{ csrf_token() }}">

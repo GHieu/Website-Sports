@@ -1831,8 +1831,7 @@ input.num-product::-webkit-inner-spin-button {
 
 .wrap-table-shopping-cart {
     overflow: auto;
-    border-left: 1px solid #e6e6e6;
-    border-right: 1px solid #e6e6e6;
+    border: 1px solid #000;
 }
 
 .table-shopping-cart {
@@ -1841,9 +1840,29 @@ input.num-product::-webkit-inner-spin-button {
     min-width: 680px;
 }
 
-.table-shopping-cart tr {
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
+.table-shopping-cart {
+    width: 100%; /* Đảm bảo bảng chiếm hết chiều ngang */
+    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+}
+
+.table-shopping-cart th,
+.table-shopping-cart td {
+    text-align: center; /* Căn giữa ngang */
+    vertical-align: middle; /* Căn giữa dọc */
+}
+
+.table-shopping-cart .column-1 {
+    width: 20%; /* Tỉ lệ của cột hình ảnh */
+}
+
+.table-shopping-cart .column-2 {
+    width: 40%; /* Tỉ lệ của cột tên sản phẩm */
+}
+
+.table-shopping-cart .column-3,
+.table-shopping-cart .column-4,
+.table-shopping-cart .column-5 {
+    width: 13%; /* Chia đều cho các cột còn lại */
 }
 
 .table-shopping-cart .column-1 {
@@ -1863,7 +1882,6 @@ input.num-product::-webkit-inner-spin-button {
 
 .table-shopping-cart .column-4 {
     width: 145px;
-    text-align: right;
 }
 
 .table-shopping-cart .column-5 {
@@ -2150,7 +2168,6 @@ input.num-product::-webkit-inner-spin-button {
 
 .stext-109 {
     font-family: Poppins-Regular;
-    font-size: 12px;
     line-height: 1.833333;
 }
 
@@ -2372,6 +2389,9 @@ input.num-product::-webkit-inner-spin-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ Size ]*/
+.size-100 {
+    width: 100%;
+}
 .size-101 {
     min-width: 161px;
     height: 46px;
@@ -2613,7 +2633,7 @@ input.num-product::-webkit-inner-spin-button {
     background-color: #333;
 }
 .bg8 {
-    background-color: #f3f3f3;
+    background-color: #000;
 }
 .bg9 {
     background-color: rgba(255, 255, 255, 0.9);
@@ -2690,7 +2710,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .bor10 {
-    border: 1px solid #e6e6e6;
+    border: 1px solid #000;
 }
 
 .bor11 {
@@ -2698,7 +2718,8 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .bor12 {
-    border-bottom: 1px dashed #d9d9d9;
+    border-bottom: 1px dashed #000;
+    border-top: 1px dashed #000;
 }
 
 .bor13 {
@@ -2711,9 +2732,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .bor15 {
-    border-left: 1px solid #e6e6e6;
-    border-right: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
+    border: 1px solid #000;
 }
 
 .bor16 {

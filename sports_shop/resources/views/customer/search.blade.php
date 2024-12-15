@@ -188,12 +188,12 @@
             <div class="dis-none panel-filter w-full p-t-10">
                 <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
                     <div class="filter-col1 p-r-15 p-b-27">
-                        <div class="mtext-102 p-b-15">
-                            Sắp xếp
+                        <div class="mtext-102 cl2 p-b-15">
+                            Sort By
                         </div>
 
                         <ul>
-                            <!-- <li class="p-b-6">
+                            <li class="p-b-6">
                                 <a href="#" class="filter-link stext-106 trans-04">
                                     Default
                                 </a>
@@ -215,24 +215,23 @@
                                 <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
                                     Newness
                                 </a>
-                            </li> -->
+                            </li>
 
                             <li class="p-b-6">
-                                <a href="{{request()->fullUrlWithQuery(['price' => 'asc'])}}"
-                                    class="filter-link stext-106 trans-04">
-                                    Giá tiền tăng dần
+                                <a href="#" class="filter-link stext-106 trans-04">
+                                    Price: Low to High
                                 </a>
                             </li>
 
                             <li class="p-b-6">
-                                <a href="{{request()->fullUrlWithQuery(['price' => 'desc'])}}"
-                                    class="filter-link stext-106 trans-04">
-                                    Giá tiền giảm dần
+                                <a href="#" class="filter-link stext-106 trans-04">
+                                    Price: High to Low
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <!-- <div class="filter-col2 p-r-15 p-b-27">
+
+                    <div class="filter-col2 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
                             Price
                         </div>
@@ -375,7 +374,7 @@
                                 Crafts
                             </a>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -388,15 +387,12 @@
 
 
         <!-- Load more -->
-        <div class="flex-c-m flex-w w-full p-t-45" id="loadDone">
+        <!-- <div class="flex-c-m flex-w w-full p-t-45" id="loadDone">
             <input type="hidden" value="1" id="load">
             <a href="#" onclick="loadMore()" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
                 Xem thêm
             </a>
-        </div>
+        </div> -->
     </div>
 </section>
-
-
-
 @endsection

@@ -17,7 +17,7 @@ class Product extends Model
         'price',
         'price_sale',
         'quantity',
-        'size',
+        // 'size',
         'thumb'
     ];
 

@@ -1,2 +1,0 @@
-TRUNCATE TABLE menus; (xoá dữ liệu lưu trư)
-1sp co 1menu

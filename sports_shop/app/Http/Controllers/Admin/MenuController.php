@@ -157,7 +157,7 @@ class MenuController extends Controller
 
     public function getProduct($menu, $request)
     {
-        $query = $menu->products()->select('id', 'name', 'price', 'price_sale', 'quantity', 'size', 'thumb');
+        $query = $menu->products()->select('id', 'name', 'price', 'price_sale', 'quantity', 'thumb');//, 'size'
 
         if ($request->input('price')) {
             $query->orderBy('price', $request->input('price'));

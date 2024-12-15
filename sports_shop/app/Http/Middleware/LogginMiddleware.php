@@ -16,7 +16,7 @@ class LogginMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::id() > 0) {
-            return redirect()->route('admin');
+            return redirect()->route('home');
         }
         return $next($request);
     }

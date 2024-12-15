@@ -13,6 +13,7 @@ class MainController extends Controller
     protected $menu;
     protected $product;
 
+
     public function __construct(MenuController $menu, ProductController $product)
     {
         $this->menu = $menu;

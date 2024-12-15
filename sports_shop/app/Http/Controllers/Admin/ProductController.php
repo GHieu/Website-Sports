@@ -59,7 +59,7 @@ class ProductController extends Controller
                 'price' => (string) $request->input('price'),
                 'price_sale' => (string) $request->input('price_sale'),
                 'quantity' => (string) $request->input('quantity'),
-                'size' => (string) $request->input('size'),
+                // 'size' => (string) $request->input('size'),
                 'thumb' => (string) $request->input('thumb'),
             ]);
             Session::flash('success', 'Thêm sản phẩm mới thành công');
@@ -187,6 +187,26 @@ class ProductController extends Controller
                 $query->offset($load * self::LIMIT);
             })
             ->limit(self::LIMIT)
+            ->get();
+    }
+
+
+    //Hiển thị trang chi tiết sản phẩm
+    public function show($id)
+    {
+        return Product::where('id', $id)
+            ->with('menu')
+            ->firstOrFail();
+    }
+
+
+    //Danh sách xem gần đây
+    public function moreProducts($id)
+    {
+        return Product::select('id', 'name', 'price', 'price_sale', 'quantity', 'thumb')
+            ->where('id', '!=', $id)
+            ->orderByDesc('id')
+            ->limit(4)
             ->get();
     }
 }

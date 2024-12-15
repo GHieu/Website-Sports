@@ -15,7 +15,7 @@ class LoginController extends Controller
             return redirect()->route('admin');
         }
         return view('admin.login', [
-            'title' => 'Bảng nhập hệ thống',
+            'title' => 'LOGIN ADMIN',
             'name' => 'LOGIN ADMIN'
         ]);
     }
