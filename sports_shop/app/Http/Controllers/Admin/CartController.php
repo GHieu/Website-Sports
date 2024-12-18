@@ -88,10 +88,22 @@ class CartController
             $this->infoProductCart($carts, $customer->id);
 
             DB::commit();
+
+
+
+
+            // Lấy sản phẩm trong giỏ hàng để gửi qua email
+            $product_ids = array_keys($carts);
+            $product = Product::select('id', 'name', 'price', 'thumb')
+                ->whereIn('id', $product_ids)
+                ->get();
+
+
             Session::flash('success', 'Bạn đã đặt hàng thành công');
 
+            //$product = Product::all();
             #Queue
-            SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
+            SendMail::dispatch($request->input('email'), $customer, $product);//->delay(now()->addSeconds(5));
 
             Session::forget('carts');
         } catch (Exception $err) {
@@ -146,10 +158,6 @@ class CartController
             'name' => 'Đơn đặt hàng',
             'customers' => $this->getCustomer()
         ]);
-    }
-
-    public function getCartCustomer($customer){
-
     }
 
     public function viewDetails(Customer $customer)

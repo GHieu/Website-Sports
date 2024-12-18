@@ -13,8 +13,6 @@ class CheckLoginMiddleware
             session(['url.intended' => url()->full()]);
             return redirect('/customer/login')->with('error', 'Vui lòng đăng nhập để tiếp tục.');
         }
-
         return $next($request);
     }
-
 }

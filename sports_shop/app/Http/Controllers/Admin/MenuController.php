@@ -18,6 +18,24 @@ class MenuController extends Controller
 {
 
     //x
+    public function getAll()
+    {
+        return Menu::orderByDesc('id')->paginate(20);
+    }
+
+
+    //form danh sách
+    public function index()
+    {
+        return view('admin.menu.list', [
+            'title' => 'Danh sách danh mục',
+            'name' => 'Danh sách của các danh mục',
+            'menus' => $this->getAll()
+        ]);
+    }
+
+
+    //x
     public function getParent()
     {
         return Menu::where('parent_id', 0)->get();
@@ -29,12 +47,9 @@ class MenuController extends Controller
         return view('admin.menu.add', [
             'title' => 'Thêm danh mục mới',
             'name' => 'Thêm danh mục',
-
             'menus' => $this->getParent()
         ]);
     }
-
-
 
     //x
     public function createAdd($request)
@@ -65,7 +80,7 @@ class MenuController extends Controller
     }
 
 
-    //x
+    //xử lí thêm
     public function store(CreateFormRequest $request)
     {
         $this->createAdd($request);
@@ -73,24 +88,9 @@ class MenuController extends Controller
     }
 
 
-    //x
-    public function getAll()
-    {
-        return Menu::orderByDesc('id')->paginate(20);
-    }
 
 
-    //form danh sách
-    public function index()
-    {
-        return view('admin.menu.list', [
-            'title' => 'Danh sách danh mục',
-            'name' => 'Danh sách của các danh mục',
-            'menus' => $this->getAll()
-        ]);
-    }
-
-    //x
+    //xử lí xoá
     public function destroy_Main($request)
     {
         $id = (int) $request->input('id');
@@ -101,6 +101,7 @@ class MenuController extends Controller
         return false;
     }
 
+    //xoá
     public function destroy(Request $request): JsonResponse
     {
         $result = $this->destroy_Main($request);
@@ -128,7 +129,7 @@ class MenuController extends Controller
         return true;
     }
 
-    //x
+    //Xử lí sửa
     public function update2(Menu $menu, CreateFormRequest $request)
     {
         $this->update1($request, $menu);
@@ -155,6 +156,7 @@ class MenuController extends Controller
         return Menu::where('id', $id)->firstOrFail();
     }
 
+    //Sắp xếp giá tăng/giảm dần (customer)
     public function getProduct($menu, $request)
     {
         $query = $menu->products()->select('id', 'name', 'price', 'price_sale', 'quantity', 'thumb');//, 'size'

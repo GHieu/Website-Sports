@@ -19,6 +19,8 @@ class MainController extends Controller
         $this->menu = $menu;
         $this->product = $product;
     }
+
+    //Trang chủ
     public function index()
     {
         return view('customer.home', [
@@ -27,6 +29,7 @@ class MainController extends Controller
         ]);
     }
 
+    //Xử lí load thêm sản phẩm nhận yêu cầu từ ajax
     public function loadProduct(Request $request)
     {
         $load = $request->input('load', 0);

@@ -16,14 +16,35 @@ use Session;
 
 class ProductController extends Controller
 {
+
     //x
+    public function get()
+    {
+        return Product::
+            //menu (relationship in model) (Ở Model)
+            with('menu')
+            ->orderByDesc('id')->paginate(15);
+    }
+
+    //form danh sách
+    public function index()
+    {
+        return view('admin.product.list', [
+            'title' => 'Danh sách sản phẩm',
+            'name' => 'Danh sách sản phẩm',
+            'products' => $this->get()
+        ]);
+    }
+
+
+    //Lấy danh mục 
     public function getMenu()
     {
         return Menu::where('active', 1)->get();
     }
 
 
-    //x
+    //Xử lí giá tiền
     protected function isValidPrice($request)
     {
         if (
@@ -41,7 +62,7 @@ class ProductController extends Controller
         return true;
     }
 
-    //x
+    //hàm xử lí thêm
     public function create2(Request $request)
     {
         $isValidPrice = $this->isValidPrice($request);
@@ -71,7 +92,7 @@ class ProductController extends Controller
         return true;
     }
 
-    //thêm
+    //hàm thêm
     public function store(ProductRequest $request)
     {
         $this->create2($request);
@@ -89,26 +110,8 @@ class ProductController extends Controller
     }
 
 
-    //x
-    public function get()
-    {
-        return Product::
 
-            //menu (relationship in model)
-            with('menu')
-            ->orderByDesc('id')->paginate(15);
-    }
-
-    //form danh sách
-    public function index()
-    {
-        return view('admin.product.list', [
-            'title' => 'Danh sách sản phẩm',
-            'name' => 'Danh sách sản phẩm',
-            'products' => $this->get()
-        ]);
-    }
-
+    //hàm xử lí cập nhật
     public function update1($request, $product)
     {
         $isValidPrice = $this->isValidPrice($request);
@@ -128,7 +131,7 @@ class ProductController extends Controller
         return true;
     }
 
-    //x
+    //hàm cập nhật
     public function update2(Product $product, ProductRequest $request)
     {
         $result = $this->update1($request, $product);
@@ -149,6 +152,7 @@ class ProductController extends Controller
             'menus' => $this->getMenu()
         ]);
     }
+
 
     public function delete($request)
     {
@@ -178,6 +182,7 @@ class ProductController extends Controller
     }
 
     //Call id Customer/MainController
+    //Sản phẩm tại trang chủ
     const LIMIT = 16;
     public function get2($load = null)
     {

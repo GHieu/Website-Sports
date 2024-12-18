@@ -13,12 +13,16 @@ class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $customer; // Thông tin khách hàng
+    public $products; // Thông tin sản phẩm
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($customer, $products)
     {
-        //
+        $this->customer = $customer;
+        $this->products = $products; // Nhận danh sách sản phẩm
     }
 
     /**
@@ -27,7 +31,7 @@ class OrderShipped extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Order Shipped',
+            subject: 'Đơn hàng từ Sports',
         );
     }
 

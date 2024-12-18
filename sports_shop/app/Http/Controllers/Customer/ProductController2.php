@@ -21,6 +21,7 @@ class ProductController2 extends Controller
 
         $productsMore = $this->productController2->moreProducts($id);
 
+        //Chi tiết sản phẩm
         return view('customer.products.content', [
             "title" => $product->name,
             'product' => $product,
@@ -32,7 +33,7 @@ class ProductController2 extends Controller
     {
         $title = 'Kết quả tìm kiếm';
         $keyword = $request->input('search');
-        $products = Product::where('name', 'LIKE', '%' . $keyword . '%')->orWhere('description', 'LIKE', '%' . $keyword . '%')->orderByDesc('id')->paginate(5);
+        $products = Product::where('name', 'LIKE', '%' . $keyword . '%')->orderByDesc('id')->paginate(20);
         return view('customer.search', compact('title', 'products'));
     }
 }
