@@ -3,6 +3,8 @@ $.ajaxSetup({
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
     },
 });
+
+//Xủ lí laod thêm sản phẩm
 function loadMore() {
     const load = $("#load").val();
     $.ajax({
